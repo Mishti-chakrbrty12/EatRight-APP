@@ -13,13 +13,13 @@ import requests
 load_dotenv()
 
 # Set paths
-MODEL_PATH_1 = "C:/Users/HP/Downloads/archive (4)/vit-food-final"
-MODEL_PATH_2 = "C:/Users/HP/Downloads/archive (4)/food_classifier_final.pth"
+MODEL_PATH_1 = "C:/Users/HP/Downloads/AI MODELS/vit-food-final"
+MODEL_PATH_2 = "C:/Users/HP/Downloads/AI MODELS/food_classifier_final.pth"
 LABEL_MAP_PATH = "C:/Users/HP/Downloads/all_non_veg_dishes_health_info.json"
 
 # Load model and processor
-model1 = ViTForImageClassification.from_pretrained(MODEL_PATH_1) # ViT model
-processor = ViTImageProcessor.from_pretrained(MODEL_PATH_1) # ViT processor for image preprocessing (resizing, normalizing, etc.)                               
+model1 = ViTForImageClassification.from_pretrained(MODEL_PATH_1, local_files_only=True) # ViT model
+processor = ViTImageProcessor.from_pretrained(MODEL_PATH_1, local_files_only=True) # ViT processor for image preprocessing (resizing, normalizing, etc.)                               
 
 # Load ResNet-18 model for 67 classes
 model2 = resnet18(pretrained=False)
